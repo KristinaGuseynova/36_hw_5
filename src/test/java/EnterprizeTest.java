@@ -10,7 +10,7 @@ import static com.codeborne.selenide.Selenide.*;
 public class EnterprizeTest {
 
     @Test
-    void pageEnterprisesShouldBeOpen() {
+    void pageEnterprisesShouldBeOpenTest() {
 
         open("https://github.com/");
         $(withTagAndText("button","Solutions")).hover();
@@ -19,8 +19,10 @@ public class EnterprizeTest {
     }
 
     @Test
-    void drugNDropTestActions() {
+    void drugNDropTestActionsTest() {
         open("https://the-internet.herokuapp.com/drag_and_drop");
+        $("#column-a").shouldHave(text("A"));
+        $("#column-b").shouldHave(text("B"));
 
         WebElement columnA = $("#column-a").toWebElement();
         WebElement columnB = $("#column-b").toWebElement();
@@ -37,8 +39,11 @@ public class EnterprizeTest {
     }
 
     @Test
-    void drugNDropTestWithDrugAndDrop() {
+    void drugNDropTestWithDrugAndDropTest() {
         open("https://the-internet.herokuapp.com/drag_and_drop");
+        $("#column-a").shouldHave(text("A"));
+        $("#column-b").shouldHave(text("B"));
+
         $("#column-a").dragAndDrop(DragAndDropOptions.to($("#column-b")));
         $("#column-a").shouldHave(text("B"));
 
